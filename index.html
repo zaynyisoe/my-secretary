@@ -3,9 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
-  <title>အတွင်းရေးမှူး Pro</title>
+  <title>အတွင်းရေးမှူး PRO (Ultimate Edition)</title>
 
-  <!-- iPhone Home Screen App Settings -->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="အတွင်းရေးမှူး">
@@ -13,7 +12,6 @@
   <link rel="apple-touch-icon" id="apple-touch-icon" sizes="180x180" href="">
   <link rel="icon" type="image/png" id="favicon-icon" href="">
 
-  <!-- 180x180 Custom App Icon Generator -->
   <script>
     (function generateAppIcon() {
       const size = 180;
@@ -21,17 +19,10 @@
       canvas.width = size;
       canvas.height = size;
       const ctx = canvas.getContext('2d');
-
       const bgGrad = ctx.createLinearGradient(0, 0, size, size);
       bgGrad.addColorStop(0, '#0f172a');
       bgGrad.addColorStop(1, '#1e293b');
       ctx.fillStyle = bgGrad;
-      ctx.fillRect(0, 0, size, size);
-
-      const glow = ctx.createRadialGradient(90, 90, 10, 90, 90, 85);
-      glow.addColorStop(0, 'rgba(59, 130, 246, 0.28)');
-      glow.addColorStop(1, 'rgba(15, 23, 42, 0)');
-      ctx.fillStyle = glow;
       ctx.fillRect(0, 0, size, size);
 
       function drawRoundedRect(x, y, w, h, r) {
@@ -47,7 +38,6 @@
         ctx.quadraticCurveTo(x, y, x + r, y);
         ctx.closePath();
       }
-
       drawRoundedRect(34, 38, 112, 104, 22);
       ctx.fillStyle = 'rgba(255, 255, 255, 0.08)';
       ctx.fill();
@@ -58,11 +48,9 @@
       drawRoundedRect(54, 92, 18, 32, 6);
       ctx.fillStyle = '#60a5fa';
       ctx.fill();
-
       drawRoundedRect(81, 74, 18, 50, 6);
       ctx.fillStyle = '#34d399';
       ctx.fill();
-
       drawRoundedRect(108, 56, 18, 68, 6);
       ctx.fillStyle = '#fbbf24';
       ctx.fill();
@@ -82,650 +70,127 @@
       --text-main: #1e293b;
       --text-muted: #64748b;
       --green: #10b981;
-      --green-bg: #d1fae5;
       --red: #ef4444;
       --red-light: #fee2e2;
       --accent: #3b82f6;
-      --gold: #f59e0b;
       --border: #e2e8f0;
     }
-
     * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
-
     body {
       background-color: #cbd5e1;
-      font-family: 'Noto Sans Myanmar', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-family: 'Noto Sans Myanmar', -apple-system, sans-serif;
       color: var(--text-main);
       display: flex;
       justify-content: center;
       min-height: 100vh;
     }
-
     .app-container {
       width: 100%;
       max-width: 480px;
       background-color: var(--bg-body);
       min-height: 100vh;
       box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
-      padding-bottom: calc(40px + env(safe-area-inset-bottom));
-      position: relative;
+      padding-bottom: 40px;
     }
-
-    /* Header Section */
     .top-header {
       background: linear-gradient(145deg, #0f172a 0%, #1e293b 100%);
       color: #ffffff;
       padding: calc(18px + env(safe-area-inset-top)) 16px 22px;
       border-bottom-left-radius: 26px;
       border-bottom-right-radius: 26px;
-      box-shadow: 0 6px 20px rgba(15, 23, 42, 0.2);
     }
-
-    .header-top-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 10px;
-    }
-
-    .app-title {
-      font-size: 17px;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .pro-tag {
-      background: linear-gradient(135deg, #f59e0b, #d97706);
-      color: #fff;
-      font-size: 10px;
-      padding: 2px 6px;
-      border-radius: 6px;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-    }
-
-    .header-actions {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .icon-btn {
-      background: rgba(255, 255, 255, 0.12);
-      border: 1px solid rgba(255, 255, 255, 0.18);
-      color: #fff;
-      width: 32px;
-      height: 32px;
-      border-radius: 9px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      font-size: 14px;
-    }
-
-    .month-picker {
-      background: rgba(255, 255, 255, 0.12);
-      color: #ffffff;
-      border: 1px solid rgba(255, 255, 255, 0.18);
-      padding: 5px 8px;
-      border-radius: 9px;
-      font-size: 12px;
-      font-family: inherit;
-      outline: none;
-      height: 32px;
-    }
-
-    /* Wallet Switcher */
-    .wallet-bar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 14px;
-      gap: 8px;
-    }
-
-    .wallet-tabs {
-      display: flex;
-      background: rgba(0, 0, 0, 0.25);
-      padding: 3px;
-      border-radius: 10px;
-    }
-
-    .wallet-tab {
-      border: none;
-      background: transparent;
-      color: #94a3b8;
-      padding: 5px 12px;
-      border-radius: 8px;
-      font-size: 12px;
-      font-weight: 600;
-      font-family: inherit;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-
-    .wallet-tab.active {
-      background: #3b82f6;
-      color: #ffffff;
-    }
-
-    .sync-badge {
-      font-size: 10.5px;
-      padding: 4px 8px;
-      border-radius: 10px;
-      background: rgba(255, 255, 255, 0.08);
-      color: #94a3b8;
-    }
-
-    .balance-box { text-align: center; margin-bottom: 14px; }
+    .header-top-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+    .app-title { font-size: 17px; font-weight: 700; display: flex; align-items: center; gap: 6px; }
+    .rate-setting { display: flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.1); padding: 4px 8px; border-radius: 8px; font-size: 11.5px; }
+    .rate-input { width: 55px; background: transparent; border: none; color: #34d399; font-weight: 700; font-family: inherit; font-size: 12px; outline: none; text-align: right; }
+    
+    .balance-box { text-align: center; margin-bottom: 12px; }
     .balance-label { font-size: 11.5px; color: #94a3b8; margin-bottom: 2px; }
-    .balance-amount { font-size: 31px; font-weight: 700; letter-spacing: 0.5px; }
+    .balance-amount { font-size: 28px; font-weight: 700; }
+    .balance-sub-amount { font-size: 14px; color: #34d399; margin-top: 2px; font-weight: 600; }
 
-    .summary-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      margin-bottom: 12px;
-    }
-
-    .summary-item {
-      background: rgba(255, 255, 255, 0.08);
-      padding: 10px 12px;
-      border-radius: 12px;
-    }
-
+    .summary-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 12px; }
+    .summary-item { background: rgba(255, 255, 255, 0.08); padding: 10px 12px; border-radius: 12px; }
     .summary-item span { display: block; font-size: 11px; color: #cbd5e1; margin-bottom: 2px; }
-    .summary-item strong { font-size: 15px; }
+    .summary-item strong { font-size: 14px; display: block; }
+    .sub-conv { font-size: 11px; color: #94a3b8; font-weight: normal; margin-top: 2px; }
 
-    .income-text { color: #34d399; }
-    .expense-text { color: #f87171; }
+    .card { background: var(--card-bg); margin: 14px 14px 0; padding: 15px; border-radius: 16px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04); }
+    .card-title { font-size: 13.5px; font-weight: 700; margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center; }
 
-    /* Budget Progress inside Header */
-    .budget-box {
-      background: rgba(255, 255, 255, 0.07);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      padding: 10px 12px;
-      border-radius: 12px;
-      margin-bottom: 12px;
-      cursor: pointer;
-    }
-
-    .budget-top {
-      display: flex;
-      justify-content: space-between;
-      font-size: 11.5px;
-      color: #e2e8f0;
-      margin-bottom: 6px;
-    }
-
-    .budget-track {
-      width: 100%;
-      height: 6px;
-      background: rgba(255, 255, 255, 0.15);
-      border-radius: 10px;
-      overflow: hidden;
-      margin-bottom: 6px;
-    }
-
-    .budget-fill {
-      height: 100%;
-      background: #34d399;
-      border-radius: 10px;
-      transition: width 0.3s ease, background 0.3s ease;
-    }
-
-    .budget-sub {
-      display: flex;
-      justify-content: space-between;
-      font-size: 11px;
-      color: #94a3b8;
-    }
-
-    .secretary-note {
-      background: rgba(59, 130, 246, 0.18);
-      border-left: 3px solid #60a5fa;
-      padding: 10px 12px;
-      border-radius: 8px;
-      font-size: 12px;
-      line-height: 1.5;
-      color: #e2e8f0;
-    }
-
-    /* Cards */
-    .card {
-      background: var(--card-bg);
-      margin: 14px 14px 0;
-      padding: 15px;
-      border-radius: 16px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
-    }
-
-    .card-title {
-      font-size: 13.5px;
-      font-weight: 700;
-      margin-bottom: 12px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 8px;
-    }
-
-    /* Quick Templates */
-    .quick-scroll {
-      display: flex;
-      gap: 7px;
-      overflow-x: auto;
-      padding-bottom: 10px;
-      margin-bottom: 8px;
-      scrollbar-width: none;
-    }
-    .quick-scroll::-webkit-scrollbar { display: none; }
-
-    .quick-chip {
-      flex: 0 0 auto;
-      background: #f8fafc;
-      border: 1px solid var(--border);
-      padding: 6px 10px;
-      border-radius: 20px;
-      font-size: 11.5px;
-      font-family: inherit;
-      color: var(--text-main);
-      cursor: pointer;
-      white-space: nowrap;
-    }
-    .quick-chip:active { background: #e2e8f0; }
-
-    .type-toggle {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      background: var(--bg-body);
-      padding: 4px;
-      border-radius: 10px;
-      margin-bottom: 12px;
-    }
-
-    .type-btn {
-      border: none;
-      background: transparent;
-      padding: 8px;
-      border-radius: 8px;
-      font-family: inherit;
-      font-size: 13px;
-      font-weight: 600;
-      cursor: pointer;
-      color: var(--text-muted);
-    }
-
+    .type-toggle { display: grid; grid-template-columns: 1fr 1fr; background: var(--bg-body); padding: 4px; border-radius: 10px; margin-bottom: 12px; }
+    .type-btn { border: none; background: transparent; padding: 8px; border-radius: 8px; font-family: inherit; font-size: 13px; font-weight: 600; cursor: pointer; color: var(--text-muted); }
     .type-btn.active-expense { background: var(--red); color: #fff; }
     .type-btn.active-income { background: var(--green); color: #fff; }
 
     .form-group { margin-bottom: 10px; }
     .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-
     label { display: block; font-size: 11.5px; color: var(--text-muted); margin-bottom: 4px; }
-
-    input, select {
-      width: 100%;
-      padding: 10px 12px;
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      font-family: inherit;
-      font-size: 16px; /* Prevents iOS Safari auto-zoom */
-      outline: none;
-      background: #fff;
-      color: var(--text-main);
-    }
-
+    input, select { width: 100%; padding: 10px 12px; border: 1px solid var(--border); border-radius: 10px; font-family: inherit; font-size: 15px; outline: none; background: #fff; color: var(--text-main); }
     input:focus, select:focus { border-color: var(--accent); }
 
-    .submit-btn {
-      width: 100%;
-      background: var(--header-bg);
-      color: #fff;
-      border: none;
-      padding: 12px;
-      border-radius: 10px;
-      font-family: inherit;
-      font-size: 14px;
-      font-weight: 600;
-      cursor: pointer;
-      margin-top: 4px;
-    }
+    .submit-btn { width: 100%; background: var(--header-bg); color: #fff; border: none; padding: 12px; border-radius: 10px; font-family: inherit; font-size: 14px; font-weight: 600; cursor: pointer; margin-top: 4px; }
 
-    .submit-btn:disabled { opacity: 0.6; cursor: not-allowed; }
-
-    /* 7-Day Mini Chart */
-    .mini-chart {
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      height: 85px;
-      padding-top: 14px;
-      gap: 6px;
-      border-bottom: 1px solid var(--border);
-      margin-bottom: 12px;
-    }
-
-    .chart-col {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      height: 100%;
-      justify-content: flex-end;
-    }
-
-    .chart-bar {
-      width: 100%;
-      max-width: 24px;
-      background: var(--accent);
-      border-radius: 6px 6px 0 0;
-      min-height: 4px;
-      transition: height 0.3s ease;
-    }
-
-    .chart-label {
-      font-size: 10px;
-      color: var(--text-muted);
-      margin-top: 4px;
-    }
-
-    /* Category Breakdown */
-    .cat-bar-item { margin-bottom: 10px; }
-    .cat-bar-header { display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 4px; }
-    .progress-track { width: 100%; height: 7px; background: var(--bg-body); border-radius: 10px; overflow: hidden; }
-    .progress-fill { height: 100%; background: var(--accent); border-radius: 10px; }
-
-    /* Search & Filter */
-    .search-box {
-      margin-bottom: 10px;
-    }
-    .search-input {
-      padding: 8px 12px;
-      font-size: 14px;
-      background: var(--bg-body);
-      border: 1px solid transparent;
-    }
-    .search-input:focus {
-      background: #fff;
-      border-color: var(--accent);
-    }
-
-    .filter-tabs { display: flex; gap: 5px; flex-wrap: wrap; }
-    .filter-chip {
-      border: 1px solid var(--border);
-      background: #fff;
-      padding: 4px 9px;
-      border-radius: 20px;
-      font-size: 11px;
-      font-family: inherit;
-      cursor: pointer;
-    }
-    .filter-chip.active { background: var(--header-bg); color: #fff; border-color: var(--header-bg); }
-
-    /* Transaction List */
     .tx-list { list-style: none; }
-    .tx-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 11px 0;
-      border-bottom: 1px solid var(--border);
-      gap: 8px;
-    }
+    .tx-item { display: flex; justify-content: space-between; align-items: center; padding: 11px 0; border-bottom: 1px solid var(--border); gap: 8px; }
     .tx-item:last-child { border-bottom: none; }
     .tx-info { display: flex; flex-direction: column; gap: 2px; min-width: 0; flex: 1; }
     .tx-note { font-size: 13.5px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     .tx-meta { font-size: 11px; color: var(--text-muted); }
-    .tx-right { display: flex; align-items: center; gap: 6px; flex-shrink: 0; }
-    .tx-amount { font-size: 13.5px; font-weight: 700; }
+    .tx-right { display: flex; align-items: center; gap: 6px; flex-shrink: 0; text-align: right; }
+    .tx-amount { font-size: 13.5px; font-weight: 700; display: block; }
+    .tx-amount-ks { font-size: 11px; color: var(--text-muted); display: block; }
 
-    .action-btn {
-      background: var(--bg-body);
-      border: none;
-      color: var(--text-muted);
-      width: 26px;
-      height: 26px;
-      border-radius: 50%;
-      cursor: pointer;
-      font-size: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .edit-btn:hover { background: #dbeafe; color: var(--accent); }
+    .del-btn { background: var(--bg-body); border: none; color: var(--text-muted); width: 26px; height: 26px; border-radius: 50%; cursor: pointer; font-size: 14px; display: flex; align-items: center; justify-content: center; }
     .del-btn:hover { background: var(--red-light); color: var(--red); }
-
-    .export-btn {
-      background: var(--bg-body);
-      border: 1px solid var(--border);
-      padding: 4px 9px;
-      border-radius: 8px;
-      font-size: 11px;
-      font-family: inherit;
-      cursor: pointer;
-    }
-
     .empty-state { text-align: center; color: var(--text-muted); font-size: 13px; padding: 20px 0; }
 
-    /* Modals */
-    .modal-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(15, 23, 42, 0.65);
-      backdrop-filter: blur(4px);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      z-index: 1000;
-      padding: 16px;
-    }
-    .modal-overlay.open { display: flex; }
-
-    .modal-card {
-      background: #fff;
-      width: 100%;
-      max-width: 400px;
-      border-radius: 20px;
-      padding: 20px;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.25);
-    }
-
-    .modal-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 14px;
-      font-weight: 700;
-      font-size: 15px;
-    }
-
-    .close-modal {
-      background: var(--bg-body);
-      border: none;
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      cursor: pointer;
-      font-size: 16px;
-    }
-
-    .btn-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      margin-top: 12px;
-    }
-
-    .secondary-btn {
-      background: var(--bg-body);
-      color: var(--text-main);
-      border: 1px solid var(--border);
-      padding: 11px;
-      border-radius: 10px;
-      font-family: inherit;
-      font-size: 13.5px;
-      font-weight: 600;
-      cursor: pointer;
-    }
-
-    /* PIN Lock Screen */
-    .pin-screen {
-      position: fixed;
-      inset: 0;
-      background: linear-gradient(145deg, #0f172a 0%, #1e293b 100%);
-      color: #fff;
-      z-index: 2000;
-      display: none;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 24px;
-    }
-    .pin-screen.active { display: flex; }
-
-    .pin-dots {
-      display: flex;
-      gap: 14px;
-      margin: 22px 0 28px;
-    }
-    .pin-dot {
-      width: 14px;
-      height: 14px;
-      border-radius: 50%;
-      border: 2px solid #60a5fa;
-      transition: background 0.15s;
-    }
-    .pin-dot.filled { background: #60a5fa; }
-
-    .keypad {
-      display: grid;
-      grid-template-columns: repeat(3, 72px);
-      gap: 14px;
-    }
-    .key-btn {
-      width: 72px;
-      height: 72px;
-      border-radius: 50%;
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      background: rgba(255, 255, 255, 0.08);
-      color: #fff;
-      font-size: 22px;
-      font-weight: 600;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .key-btn:active { background: rgba(59, 130, 246, 0.4); }
-    .key-btn.empty { background: transparent; border: none; cursor: default; }
-
-    @keyframes shake {
-      0%, 100% { transform: translateX(0); }
-      25% { transform: translateX(-8px); }
-      75% { transform: translateX(8px); }
-    }
-    .shake { animation: shake 0.25s ease-in-out; }
+    /* Checklist & Category Styles */
+    .checklist-category-title { font-size: 12.5px; font-weight: 700; color: var(--accent); margin: 12px 0 6px 0; border-bottom: 1px dashed var(--border); padding-bottom: 4px; }
+    .checklist-item { display: flex; align-items: flex-start; gap: 10px; padding: 8px 0; border-bottom: 1px solid var(--border); }
+    .checklist-item:last-child { border-bottom: none; }
+    .checklist-item input[type="checkbox"] { width: 18px; height: 18px; accent-color: var(--green); margin-top: 2px; cursor: pointer; flex-shrink: 0; }
+    .checklist-content { display: flex; flex-direction: column; gap: 3px; }
+    .checklist-label { font-size: 13px; font-weight: 600; line-height: 1.4; }
+    .checklist-label.completed { text-decoration: line-through; color: var(--text-muted); }
+    .checklist-sub { font-size: 11px; color: var(--text-muted); line-height: 1.3; }
   </style>
 </head>
 <body>
 
-  <!-- 4-Digit PIN Lock Screen -->
-  <div class="pin-screen" id="pin-screen">
-    <div style="font-size: 32px; margin-bottom: 8px;">🔐</div>
-    <div style="font-size: 17px; font-weight: 700;" id="pin-title">အတွင်းရေးမှူး Lock</div>
-    <div style="font-size: 12px; color: #94a3b8; margin-top: 4px;" id="pin-subtitle">ဂဏန်း ၄ လုံး ရိုက်ထည့်ပါ</div>
-    <div class="pin-dots" id="pin-dots">
-      <div class="pin-dot"></div>
-      <div class="pin-dot"></div>
-      <div class="pin-dot"></div>
-      <div class="pin-dot"></div>
-    </div>
-    <div class="keypad" id="keypad">
-      <button class="key-btn" data-key="1">1</button>
-      <button class="key-btn" data-key="2">2</button>
-      <button class="key-btn" data-key="3">3</button>
-      <button class="key-btn" data-key="4">4</button>
-      <button class="key-btn" data-key="5">5</button>
-      <button class="key-btn" data-key="6">6</button>
-      <button class="key-btn" data-key="7">7</button>
-      <button class="key-btn" data-key="8">8</button>
-      <button class="key-btn" data-key="9">9</button>
-      <button class="key-btn empty"></button>
-      <button class="key-btn" data-key="0">0</button>
-      <button class="key-btn" data-key="del" style="font-size: 16px;">⌫</button>
-    </div>
-  </div>
-
   <div class="app-container">
-    <!-- Top Header -->
     <div class="top-header">
       <div class="header-top-row">
-        <div class="app-title">📋 အတွင်းရေးမှူး <span class="pro-tag">PRO</span></div>
-        <div class="header-actions">
-          <input type="month" id="month-filter" class="month-picker" />
-          <button class="icon-btn" id="privacy-btn" title="ငွေပမာဏ ဖျောက်ရန်">👁️</button>
-          <button class="icon-btn" id="lock-btn" title="PIN Lock စနစ်">🔓</button>
+        <div class="app-title">📋 အတွင်းရေးမှူး PRO</div>
+        <div class="rate-setting" title="1 NT$ လျှင် မြန်မာကျပ် ဘယ်လောက်လဲ">
+          <span>1 NT$ =</span>
+          <input type="number" id="exchange-rate" class="rate-input" value="110" step="0.5" />
+          <span>Ks</span>
         </div>
-      </div>
-
-      <div class="wallet-bar">
-        <div class="wallet-tabs">
-          <button class="wallet-tab active" data-wallet="NT$">🇹🇼 NT$ Wallet</button>
-          <button class="wallet-tab" data-wallet="Ks">🇲🇲 Ks Wallet</button>
-        </div>
-        <div class="sync-badge" id="sync-status">🟡 Connecting...</div>
       </div>
 
       <div class="balance-box">
-        <div class="balance-label" id="balance-label">ယခုလ လက်ကျန်ငွေ (NT$)</div>
+        <div class="balance-label">ယခုလ လက်ကျန်ငွေ (NT$)</div>
         <div class="balance-amount" id="total-balance">NT$ 0</div>
+        <div class="balance-sub-amount" id="total-balance-ks">≈ Ks 0</div>
       </div>
 
       <div class="summary-grid">
         <div class="summary-item">
           <span>စုစုပေါင်း ဝင်ငွေ</span>
-          <strong class="income-text" id="total-income">NT$ 0</strong>
+          <strong id="total-income">NT$ 0</strong>
+          <span class="sub-conv" id="total-income-ks">≈ Ks 0</span>
         </div>
         <div class="summary-item">
           <span>စုစုပေါင်း အသုံးစရိတ်</span>
-          <strong class="expense-text" id="total-expense">NT$ 0</strong>
+          <strong id="total-expense">NT$ 0</strong>
+          <span class="sub-conv" id="total-expense-ks">≈ Ks 0</span>
         </div>
-      </div>
-
-      <!-- Monthly Budget & Daily Safe Allowance -->
-      <div class="budget-box" id="open-budget-modal">
-        <div class="budget-top">
-          <span id="budget-label">🎯 လစဉ်ဘတ်ဂျက် သတ်မှတ်ရန် နှိပ်ပါ</span>
-          <span id="budget-pct">0%</span>
-        </div>
-        <div class="budget-track">
-          <div class="budget-fill" id="budget-fill" style="width: 0%;"></div>
-        </div>
-        <div class="budget-sub">
-          <span id="budget-remaining">ကျန်ဘတ်ဂျက်: -</span>
-          <span id="daily-allowance">တစ်နေ့သုံးစွဲခွင့်: -</span>
-        </div>
-      </div>
-
-      <div class="secretary-note" id="secretary-advice">
-        မင်္ဂလာပါ — ဒီနေ့အတွက် ဝင်ငွေ သို့မဟုတ် အသုံးစရိတ် စတင်မှတ်သားနိုင်ပါပြီ။
       </div>
     </div>
 
-    <!-- Add Transaction Card -->
+    <!-- Transaction Form Card -->
     <div class="card">
-      <div class="card-title">
-        <span>⚡ အမြန်မှတ်တမ်းသွင်းရန်</span>
-        <span style="font-size: 11px; color: var(--text-muted); font-weight: 400;" id="active-wallet-indicator">Wallet: NT$</span>
-      </div>
-
-      <!-- 1-Tap Quick Templates -->
-      <div class="quick-scroll" id="quick-templates"></div>
-
       <div class="type-toggle">
         <button type="button" class="type-btn active-expense" id="btn-expense">− အသုံးစရိတ်</button>
         <button type="button" class="type-btn" id="btn-income">+ ဝင်ငွေ</button>
@@ -734,7 +199,7 @@
       <form id="tx-form">
         <div class="form-row form-group">
           <div>
-            <label for="amount">ပမာဏ (<span id="form-currency-label">NT$</span>)</label>
+            <label for="amount">ပမာဏ (NT$)</label>
             <input type="number" id="amount" placeholder="ဥပမာ - 120" required min="1" step="any" />
           </div>
           <div>
@@ -746,7 +211,7 @@
         <div class="form-row form-group">
           <div>
             <label for="note">အသေးစိတ် မှတ်ချက်</label>
-            <input type="text" id="note" placeholder="ဥပမာ - နေ့လယ်စာ / ဆီဖိုး" required />
+            <input type="text" id="note" placeholder="ဥပမာ - ထမင်း / ကော်ဖီ" required />
           </div>
           <div>
             <label for="date">ရက်စွဲ</label>
@@ -758,129 +223,28 @@
       </form>
     </div>
 
-    <!-- Analytics Card (7-Day Chart + Category Breakdown) -->
-    <div class="card" id="analytics-card" style="display: none;">
-      <div class="card-title"><span>📊 အသုံးစရိတ် ခွဲခြမ်းစိတ်ဖြာချက်</span></div>
-      <div style="font-size: 11px; color: var(--text-muted); margin-bottom: 4px;">လတ်တလော ၇ ရက်အတွင်း နေ့စဉ်သုံးစွဲမှု</div>
-      <div class="mini-chart" id="daily-chart"></div>
-      <div id="category-breakdown"></div>
-    </div>
-
-    <!-- Transaction History Card -->
+    <!-- Transactions List Card -->
     <div class="card">
       <div class="card-title">
         <span>📝 ယခုလ မှတ်တမ်းများ</span>
-        <div class="filter-tabs">
-          <button class="filter-chip active" data-filter="all">အားလုံး</button>
-          <button class="filter-chip" data-filter="expense">အသုံး</button>
-          <button class="filter-chip" data-filter="income">အဝင်</button>
-          <button class="export-btn" id="export-csv">CSV</button>
-        </div>
+        <input type="month" id="month-filter" style="width: auto; padding: 4px 8px; font-size: 12px;" />
       </div>
-
-      <div class="search-box">
-        <input type="text" id="search-input" class="search-input" placeholder="🔍 မှတ်ချက် သို့မဟုတ် အမျိုးအစား ရှာရန်..." />
-      </div>
-
       <ul class="tx-list" id="tx-list"></ul>
     </div>
-  </div>
 
-  <!-- Edit Transaction Modal -->
-  <div class="modal-overlay" id="edit-modal">
-    <div class="modal-card">
-      <div class="modal-header">
-        <span>✏️ မှတ်တမ်း ပြန်ပြင်ရန်</span>
-        <button class="close-modal" id="close-edit-modal">×</button>
+    <!-- Builder & Execution Checklist Card -->
+    <div class="card">
+      <div class="card-title">
+        <span>🚀 နေ့စဉ် Builder & Execution Checklist</span>
       </div>
-      <form id="edit-form">
-        <input type="hidden" id="edit-id" />
-        <div class="form-row form-group">
-          <div>
-            <label>အမျိုးအစား (အဝင်/အထွက်)</label>
-            <select id="edit-type">
-              <option value="expense">− အသုံးစရိတ်</option>
-              <option value="income">+ ဝင်ငွေ</option>
-            </select>
-          </div>
-          <div>
-            <label>ပိုက်ဆံအိတ် (Wallet)</label>
-            <select id="edit-currency">
-              <option value="NT$">🇹🇼 NT$</option>
-              <option value="Ks">🇲🇲 Ks</option>
-            </select>
-          </div>
-        </div>
-        <div class="form-row form-group">
-          <div>
-            <label>ပမာဏ</label>
-            <input type="number" id="edit-amount" required min="1" step="any" />
-          </div>
-          <div>
-            <label>ရက်စွဲ</label>
-            <input type="date" id="edit-date" required />
-          </div>
-        </div>
-        <div class="form-group">
-          <label>ကဏ္ဍ (Category)</label>
-          <select id="edit-category"></select>
-        </div>
-        <div class="form-group">
-          <label>မှတ်ချက်</label>
-          <input type="text" id="edit-note" required />
-        </div>
-        <button type="submit" class="submit-btn">ပြင်ဆင်မှု သိမ်းဆည်းမယ်</button>
-      </form>
-    </div>
-  </div>
-
-  <!-- Budget Setting Modal -->
-  <div class="modal-overlay" id="budget-modal">
-    <div class="modal-card">
-      <div class="modal-header">
-        <span>🎯 လစဉ် ဘတ်ဂျက် သတ်မှတ်ရန်</span>
-        <button class="close-modal" id="close-budget-modal">×</button>
-      </div>
-      <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 12px;">
-        တစ်လစာ အများဆုံး သုံးမည့် ပမာဏကို သတ်မှတ်ထားပါက တစ်နေ့တာ သုံးစွဲခွင့်ကို အလိုအလျောက် တွက်ပေးပါမည်။
-      </p>
-      <div class="form-group">
-        <label>🇹🇼 ထိုင်ဝမ် (NT$) လစဉ်ဘတ်ဂျက်</label>
-        <input type="number" id="input-budget-nt" placeholder="ဥပမာ - 12000" min="0" />
-      </div>
-      <div class="form-group">
-        <label>🇲🇲 မြန်မာ (Ks) လစဉ်ဘတ်ဂျက်</label>
-        <input type="number" id="input-budget-ks" placeholder="ဥပမာ - 500000" min="0" />
-      </div>
-      <button type="button" class="submit-btn" id="save-budget-btn">ဘတ်ဂျက် သိမ်းဆည်းမယ်</button>
-    </div>
-  </div>
-
-  <!-- PIN Setup Modal -->
-  <div class="modal-overlay" id="pin-setup-modal">
-    <div class="modal-card">
-      <div class="modal-header">
-        <span>🔐 ဂဏန်း ၄ လုံး PIN Lock စနစ်</span>
-        <button class="close-modal" id="close-pin-modal">×</button>
-      </div>
-      <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 12px;">
-        တခြားသူ ဝင်မကြည့်နိုင်အောင် ဂဏန်း ၄ လုံး Passcode သတ်မှတ်ထားနိုင်ပါသည်။ (ဖုန်းနှင့် Laptop နှစ်ခုလုံးတွင် Sync ဖြစ်ပါမည်)
-      </p>
-      <div class="form-group">
-        <label>ဂဏန်း ၄ လုံး အသစ်ရိုက်ထည့်ပါ</label>
-        <input type="password" inputmode="numeric" maxlength="4" pattern="[0-9]{4}" id="new-pin-input" placeholder="••••" />
-      </div>
-      <div class="btn-row">
-        <button type="button" class="secondary-btn" id="remove-pin-btn">Lock ဖြုတ်မယ်</button>
-        <button type="button" class="submit-btn" style="margin-top:0;" id="save-pin-btn">Lock ခတ်မယ်</button>
-      </div>
+      <div id="checklist-container"></div>
     </div>
   </div>
 
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
     import { getAuth, signInAnonymously } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js";
-    import { getFirestore, collection, addDoc, updateDoc, deleteDoc, doc, setDoc, onSnapshot, query, orderBy } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
+    import { getFirestore, collection, addDoc, deleteDoc, doc, onSnapshot, query, orderBy } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
 
     const firebaseConfig = {
       apiKey: "AIzaSyDxYxFGfKAjEUkxSTA8tyR7IVjtYl9t8VU",
@@ -894,59 +258,26 @@
     const app = initializeApp(firebaseConfig);
     const auth = getAuth(app);
     const db = getFirestore(app);
-    const syncStatusEl = document.getElementById('sync-status');
 
-    // Silent Anonymous Auth for Permanent Firestore Rules
-    signInAnonymously(auth).catch((err) => {
-      console.warn("Anonymous auth notice:", err.message);
+    signInAnonymously(auth).catch(console.error);
+
+    let exchangeRate = parseFloat(localStorage.getItem('sec_exchange_rate')) || 110;
+    document.getElementById('exchange-rate').value = exchangeRate;
+
+    document.getElementById('exchange-rate').addEventListener('input', (e) => {
+      exchangeRate = parseFloat(e.target.value) || 110;
+      localStorage.setItem('sec_exchange_rate', exchangeRate);
+      renderApp();
     });
 
     const CATEGORIES = {
-      expense: [
-        "🍜 စားသောက်စရိတ်",
-        "🛵 ဆိုင်ကယ် / သွားလာရေး",
-        "💪 Gym / ကျန်းမာရေး",
-        "💻 Tech / ကျောင်း / စာအုပ်",
-        "🏠 အဆောင် / ဖုန်းဘေလ် / Bill",
-        "🎮 Game / ဖျော်ဖြေရေး",
-        "🛍️ ဈေးဝယ် / အထွေထွေ"
-      ],
-      income: [
-        "💼 အချိန်ပိုင်း / Online အလုပ်",
-        "🏠 မိသားစု ပံ့ပိုးငွေ",
-        "📦 စီးပွားရေး / အရောင်း",
-        "✨ အခြားဝင်ငွေ"
-      ]
+      expense: ["🍜 စားသောက်စရိတ်", "🛵 ဆိုင်ကယ် / သွားလာရေး", "💪 Gym / ကျန်းမာရေး", "💻 Tech / ကျောင်း", "🏠 အဆောင် / ဖုန်းဘေလ်", "🛍️ အထွေထွေ"],
+      income: ["💼 အချိန်ပိုင်း / လစာ", "🏠 မိသားစု ပံ့ပိုးငွေ", "✨ အခြားဝင်ငွေ"]
     };
 
-    const QUICK_TEMPLATES = {
-      'NT$': [
-        { label: '🍱 ထမင်း/ဟင်း', amount: 90, cat: '🍜 စားသောက်စရိတ်', note: 'ထမင်း/ဟင်း' },
-        { label: '☕ ကော်ဖီ', amount: 65, cat: '🍜 စားသောက်စရိတ်', note: 'ကော်ဖီ' },
-        { label: '⛽ ဆိုင်ကယ်ဆီ', amount: 100, cat: '🛵 ဆိုင်ကယ် / သွားလာရေး', note: 'ဆိုင်ကယ်ဆီဖြည့်' },
-        { label: '🍗 Protein/Gym', amount: 120, cat: '💪 Gym / ကျန်းမာရေး', note: 'Protein / ကြက်ရင်ပုံ' },
-        { label: '📱 ဖုန်းဘေလ်/Bill', amount: '', cat: '🏠 အဆောင် / ဖုန်းဘေလ် / Bill', note: 'လစဉ်ဘေလ်' }
-      ],
-      'Ks': [
-        { label: '🍜 စားသောက်စရိတ်', amount: '', cat: '🍜 စားသောက်စရိတ်', note: 'စားသောက်စရိတ်' },
-        { label: '📱 ဖုန်းဘေလ်/Data', amount: 5000, cat: '🏠 အဆောင် / ဖုန်းဘေလ် / Bill', note: 'ဖုန်းဘေလ်' },
-        { label: '📦 လုပ်ငန်း/ဆိုင်သုံး', amount: '', cat: '💻 Tech / ကျောင်း / စာအုပ်', note: 'လုပ်ငန်းသုံး' },
-        { label: '🏠 မိသားစု', amount: '', cat: '🛍️ ဈေးဝယ် / အထွေထွေ', note: 'မိသားစုအသုံးစရိတ်' }
-      ]
-    };
-
-    // App State
     let transactions = [];
-    let activeWallet = localStorage.getItem('sec_wallet') || 'NT$';
     let currentType = 'expense';
-    let currentFilter = 'all';
-    let searchQuery = '';
-    let privacyMode = false;
-    let budgets = JSON.parse(localStorage.getItem('sec_budgets') || '{"NT$": 0, "Ks": 0}');
-    let savedPin = localStorage.getItem('sec_pin') || '';
-    let pinBuffer = '';
 
-    // Elements
     const monthFilter = document.getElementById('month-filter');
     const categorySelect = document.getElementById('category');
     const dateInput = document.getElementById('date');
@@ -956,7 +287,6 @@
     const submitBtn = document.getElementById('submit-btn');
     const txList = document.getElementById('tx-list');
 
-    // Initialize Date & Month
     const today = new Date();
     const yyyy = today.getFullYear();
     const mm = String(today.getMonth() + 1).padStart(2, '0');
@@ -964,165 +294,13 @@
     dateInput.value = `${yyyy}-${mm}-${dd}`;
     monthFilter.value = `${yyyy}-${mm}`;
 
-    function escapeHtml(str) {
-      if (!str) return '';
-      return String(str).replace(/[&<>"']/g, m => ({
-        '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
-      }[m]));
-    }
-
-    function formatMoney(num, curr = activeWallet) {
-      if (privacyMode) return `${curr} ••••`;
-      return `${curr} ${Number(num).toLocaleString()}`;
-    }
-
-    // PIN Lock Logic
-    const pinScreen = document.getElementById('pin-screen');
-    const pinDots = document.querySelectorAll('.pin-dot');
-    const lockBtn = document.getElementById('lock-btn');
-
-    function updateLockIcon() {
-      lockBtn.textContent = savedPin ? '🔒' : '🔓';
-    }
-
-    function showPinLock() {
-      if (!savedPin) return;
-      pinBuffer = '';
-      updatePinDots();
-      pinScreen.classList.add('active');
-    }
-
-    function updatePinDots() {
-      pinDots.forEach((dot, idx) => {
-        dot.classList.toggle('filled', idx < pinBuffer.length);
-      });
-    }
-
-    if (savedPin) showPinLock();
-    updateLockIcon();
-
-    document.getElementById('keypad').addEventListener('click', (e) => {
-      const btn = e.target.closest('.key-btn');
-      if (!btn || !btn.dataset.key) return;
-      const key = btn.dataset.key;
-
-      if (key === 'del') {
-        pinBuffer = pinBuffer.slice(0, -1);
-        updatePinDots();
-        return;
-      }
-
-      if (pinBuffer.length < 4) {
-        pinBuffer += key;
-        updatePinDots();
-      }
-
-      if (pinBuffer.length === 4) {
-        if (pinBuffer === savedPin) {
-          setTimeout(() => pinScreen.classList.remove('active'), 120);
-        } else {
-          const dotsWrap = document.getElementById('pin-dots');
-          dotsWrap.classList.add('shake');
-          setTimeout(() => {
-            dotsWrap.classList.remove('shake');
-            pinBuffer = '';
-            updatePinDots();
-          }, 300);
-        }
-      }
-    });
-
-    lockBtn.addEventListener('click', () => {
-      document.getElementById('new-pin-input').value = savedPin;
-      document.getElementById('pin-setup-modal').classList.add('open');
-    });
-
-    document.getElementById('close-pin-modal').addEventListener('click', () => {
-      document.getElementById('pin-setup-modal').classList.remove('open');
-    });
-
-    document.getElementById('save-pin-btn').addEventListener('click', async () => {
-      const val = document.getElementById('new-pin-input').value.trim();
-      if (!/^\d{4}$/.test(val)) return alert('ဂဏန်း ၄ လုံး တိတိ ရိုက်ထည့်ပါ');
-      savedPin = val;
-      localStorage.setItem('sec_pin', val);
-      updateLockIcon();
-      document.getElementById('pin-setup-modal').classList.remove('open');
-      try {
-        await setDoc(doc(db, 'config', 'security'), { pin: val }, { merge: true });
-      } catch (e) { console.error(e); }
-      showPinLock();
-    });
-
-    document.getElementById('remove-pin-btn').addEventListener('click', async () => {
-      savedPin = '';
-      localStorage.removeItem('sec_pin');
-      updateLockIcon();
-      document.getElementById('pin-setup-modal').classList.remove('open');
-      try {
-        await setDoc(doc(db, 'config', 'security'), { pin: '' }, { merge: true });
-      } catch (e) { console.error(e); }
-    });
-
-    // Privacy Mode Toggle
-    document.getElementById('privacy-btn').addEventListener('click', (e) => {
-      privacyMode = !privacyMode;
-      e.target.textContent = privacyMode ? '🙈' : '👁️';
-      renderApp();
-    });
-
-    // Wallet Switcher
-    function setActiveWallet(wallet) {
-      activeWallet = wallet;
-      localStorage.setItem('sec_wallet', wallet);
-      document.querySelectorAll('.wallet-tab').forEach(tab => {
-        tab.classList.toggle('active', tab.dataset.wallet === wallet);
-      });
-      document.getElementById('balance-label').textContent = `ယခုလ လက်ကျန်ငွေ (${wallet})`;
-      document.getElementById('active-wallet-indicator').textContent = `Wallet: ${wallet}`;
-      document.getElementById('form-currency-label').textContent = wallet;
-      renderQuickTemplates();
-      renderApp();
-    }
-
-    document.querySelectorAll('.wallet-tab').forEach(tab => {
-      tab.addEventListener('click', () => setActiveWallet(tab.dataset.wallet));
-    });
-
-    // Quick Templates
-    function renderQuickTemplates() {
-      const container = document.getElementById('quick-templates');
-      container.innerHTML = '';
-      (QUICK_TEMPLATES[activeWallet] || []).forEach(tpl => {
-        const btn = document.createElement('button');
-        btn.type = 'button';
-        btn.className = 'quick-chip';
-        btn.textContent = tpl.amount ? `${tpl.label} (${tpl.amount})` : tpl.label;
-        btn.addEventListener('click', () => {
-          currentType = 'expense';
-          btnExpense.className = 'type-btn active-expense';
-          btnIncome.className = 'type-btn';
-          updateCategoryOptions(categorySelect, 'expense');
-          categorySelect.value = tpl.cat;
-          document.getElementById('note').value = tpl.note;
-          if (tpl.amount) {
-            document.getElementById('amount').value = tpl.amount;
-          } else {
-            document.getElementById('amount').value = '';
-            document.getElementById('amount').focus();
-          }
-        });
-        container.appendChild(btn);
-      });
-    }
-
-    function updateCategoryOptions(selectEl, type) {
-      selectEl.innerHTML = '';
+    function updateCategoryOptions(type) {
+      categorySelect.innerHTML = '';
       CATEGORIES[type].forEach(cat => {
-        const option = document.createElement('option');
-        option.value = cat;
-        option.textContent = cat;
-        selectEl.appendChild(option);
+        const opt = document.createElement('option');
+        opt.value = cat;
+        opt.textContent = cat;
+        categorySelect.appendChild(opt);
       });
     }
 
@@ -1130,83 +308,24 @@
       currentType = 'expense';
       btnExpense.className = 'type-btn active-expense';
       btnIncome.className = 'type-btn';
-      updateCategoryOptions(categorySelect, 'expense');
+      updateCategoryOptions('expense');
     });
 
     btnIncome.addEventListener('click', () => {
       currentType = 'income';
       btnIncome.className = 'type-btn active-income';
       btnExpense.className = 'type-btn';
-      updateCategoryOptions(categorySelect, 'income');
+      updateCategoryOptions('income');
     });
 
     monthFilter.addEventListener('change', renderApp);
-    document.getElementById('search-input').addEventListener('input', (e) => {
-      searchQuery = e.target.value.trim().toLowerCase();
-      renderApp();
-    });
 
-    // Budget Modal Logic
-    document.getElementById('open-budget-modal').addEventListener('click', () => {
-      document.getElementById('input-budget-nt').value = budgets['NT$'] || '';
-      document.getElementById('input-budget-ks').value = budgets['Ks'] || '';
-      document.getElementById('budget-modal').classList.add('open');
-    });
-
-    document.getElementById('close-budget-modal').addEventListener('click', () => {
-      document.getElementById('budget-modal').classList.remove('open');
-    });
-
-    document.getElementById('save-budget-btn').addEventListener('click', async () => {
-      budgets = {
-        'NT$': parseFloat(document.getElementById('input-budget-nt').value) || 0,
-        'Ks': parseFloat(document.getElementById('input-budget-ks').value) || 0
-      };
-      localStorage.setItem('sec_budgets', JSON.stringify(budgets));
-      document.getElementById('budget-modal').classList.remove('open');
-      renderApp();
-      try {
-        await setDoc(doc(db, 'config', 'budgets'), budgets, { merge: true });
-      } catch (e) { console.error(e); }
-    });
-
-    // Firestore Real-time Sync (Transactions + Cloud Configs)
     const q = query(collection(db, "transactions"), orderBy("createdAt", "desc"));
     onSnapshot(q, (snapshot) => {
-      syncStatusEl.textContent = "🟢 Cloud Sync Active";
-      syncStatusEl.style.color = "#34d399";
-      transactions = snapshot.docs.map(docSnap => ({
-        id: docSnap.id,
-        ...docSnap.data()
-      }));
+      transactions = snapshot.docs.map(docSnap => ({ id: docSnap.id, ...docSnap.data() }));
       renderApp();
-    }, (error) => {
-      syncStatusEl.textContent = "🔴 Sync Error";
-      syncStatusEl.style.color = "#f87171";
-      console.error(error);
     });
 
-    onSnapshot(doc(db, 'config', 'budgets'), (snap) => {
-      if (snap.exists()) {
-        budgets = { ...budgets, ...snap.data() };
-        localStorage.setItem('sec_budgets', JSON.stringify(budgets));
-        renderApp();
-      }
-    });
-
-    onSnapshot(doc(db, 'config', 'security'), (snap) => {
-      if (snap.exists() && typeof snap.data().pin === 'string') {
-        const cloudPin = snap.data().pin;
-        if (cloudPin !== savedPin) {
-          savedPin = cloudPin;
-          if (cloudPin) localStorage.setItem('sec_pin', cloudPin);
-          else localStorage.removeItem('sec_pin');
-          updateLockIcon();
-        }
-      }
-    });
-
-    // Add New Transaction
     txForm.addEventListener('submit', async (e) => {
       e.preventDefault();
       submitBtn.disabled = true;
@@ -1214,7 +333,6 @@
 
       const newTx = {
         type: currentType,
-        currency: activeWallet,
         amount: parseFloat(document.getElementById('amount').value),
         category: categorySelect.value,
         note: document.getElementById('note').value.trim(),
@@ -1234,142 +352,169 @@
       }
     });
 
-    // Edit & Delete Listeners
-    const editModal = document.getElementById('edit-modal');
-    const editTypeSelect = document.getElementById('edit-type');
-    const editCategorySelect = document.getElementById('edit-category');
-
-    editTypeSelect.addEventListener('change', () => {
-      updateCategoryOptions(editCategorySelect, editTypeSelect.value);
-    });
-
-    document.getElementById('close-edit-modal').addEventListener('click', () => {
-      editModal.classList.remove('open');
-    });
-
     txList.addEventListener('click', async (e) => {
       const delBtn = e.target.closest('.del-btn');
-      if (delBtn) {
-        if (confirm('ဒီမှတ်တမ်းကို ဖျက်မှာ သေချာပါသလား?')) {
-          await deleteDoc(doc(db, "transactions", delBtn.dataset.id));
-        }
-        return;
-      }
-
-      const editBtn = e.target.closest('.edit-btn');
-      if (editBtn) {
-        const tx = transactions.find(item => item.id === editBtn.dataset.id);
-        if (!tx) return;
-        document.getElementById('edit-id').value = tx.id;
-        editTypeSelect.value = tx.type;
-        document.getElementById('edit-currency').value = tx.currency || 'NT$';
-        document.getElementById('edit-amount').value = tx.amount;
-        document.getElementById('edit-date').value = tx.date;
-        updateCategoryOptions(editCategorySelect, tx.type);
-        editCategorySelect.value = tx.category;
-        document.getElementById('edit-note').value = tx.note;
-        editModal.classList.add('open');
+      if (delBtn && confirm('ဒီမှတ်တမ်းကို ဖျက်မှာ သေချာပါသလား?')) {
+        await deleteDoc(doc(db, "transactions", delBtn.dataset.id));
       }
     });
 
-    document.getElementById('edit-form').addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const id = document.getElementById('edit-id').value;
-      await updateDoc(doc(db, "transactions", id), {
-        type: editTypeSelect.value,
-        currency: document.getElementById('edit-currency').value,
-        amount: parseFloat(document.getElementById('edit-amount').value),
-        date: document.getElementById('edit-date').value,
-        category: editCategorySelect.value,
-        note: document.getElementById('edit-note').value.trim()
+    function formatNT(amt) {
+      return `NT$ ${Number(amt).toLocaleString()}`;
+    }
+    function formatKs(amt) {
+      return `Ks ${Math.round(amt * exchangeRate).toLocaleString()}`;
+    }
+
+    // Complete Checklist Data from Artifact
+    const checklistData = [
+      {
+        "id": "1",
+        "label": "မနက် ကော်ဖီသောက်ပြီးတာနဲ့ ဒီနေ့အတွက် 'Action ၁ ခု' ချက်ချင်း စတင်ခြင်း (Habit Stacking)",
+        "sublines": ["စာအုပ်ဖွင့်မယ့်အစား Pleco / Shopee သို့မဟုတ် VS Code ကို ချက်ချင်းဖွင့်မယ်"],
+        "category": "Atomic Habits စနစ် (Setup & Reset)"
+      },
+      {
+        "id": "2",
+        "label": "လက်တွေ့သုံးမယ့် တရုတ်စကားလုံး/ဝါကျ ၃ ခု ရှာပြီး ချက်ချင်း သုံးခြင်း (Just-in-Time)",
+        "sublines": [
+          "ပုံမှန်: Shopee ရောင်းသူနဲ့ Chat မှာ ဈေးညှိတာ သို့မဟုတ် ဆိုင်မှာ ကိုယ်တိုင်မှာစားတာ လုပ်မယ်",
+          "ပျင်းတဲ့နေ့ (2-Min Rule): Pleco ထဲမှာ စီးပွားရေး/နေ့စဉ်သုံး စကားလုံး ၃ လုံးပဲ ရှာမှတ်မယ်"
+        ],
+        "category": "တရုတ်စာ လက်တွေ့အသုံးချခြင်း (Real-World Chinese)"
+      },
+      {
+        "id": "3",
+        "label": "တရုတ်စာ ဖတ်ရှုခြင်းနှင့် နားထောင်ခြင်း (၁၀ မိနစ်)",
+        "sublines": [
+          "ပုံမှန်: Shopee ပစ္စည်းအညွှန်း/Review ဖတ်တာ သို့မဟုတ် Du Chinese ၁ ပုဒ် နားထောင်မယ်",
+          "ပျင်းတဲ့နေ့ (2-Min Rule): စာကြောင်း ၃ ကြောင်းပဲ အသံထွက်ဖတ်မယ်"
+        ],
+        "category": "တရုတ်စာ လက်တွေ့အသုံးချခြင်း (Real-World Chinese)"
+      },
+      {
+        "id": "4",
+        "label": "၂၀ - ၃၀ မိနစ် Builder Sprint (ဆိုင်သုံး Tool / Website / Automation တည်ဆောက်ခြင်း)",
+        "sublines": [
+          "ပုံမှန်: ဖုန်း Silent လုပ်ပြီး Frame Calculator၊ QR စနစ် သို့မဟုတ် Automation Script တစ်ပိုင်း ပြီးအောင်ရေးမယ်",
+          "ပျင်းတဲ့နေ့ (2-Min Rule): VS Code ဖွင့်ပြီး Code ၅ ကြောင်းပဲ ရေး/ပြင်မယ်"
+        ],
+        "category": "Coding & Business Execution"
+      },
+      {
+        "id": "5",
+        "label": "စီးပွားရေး လက်တွေ့လှုပ်ရှားမှု ၁ ခု လုပ်ခြင်း (Taiwan ➔ Myanmar Action)",
+        "sublines": [
+          "ပုံမှန်: Shopee မှာ ကုန်ပစ္စည်း/ဈေးနှုန်း စုံစမ်းတာ၊ အမေ့ဆိုင်အတွက် TikTok Script/ပုံ ပြင်ပေးတာ လုပ်မယ်",
+          "ပျင်းတဲ့နေ့ (2-Min Rule): Shopee မှာ ကုန်ပစ္စည်း Keyword ၁ ခု ဝင်ရှာကြည့်မယ်"
+        ],
+        "category": "Coding & Business Execution"
+      },
+      {
+        "id": "6",
+        "label": "ရေးပြီးသား Code ကို ချက်ချင်း စမ်းသပ်ပြီး GitHub တင်ခြင်း (Ship & Commit)",
+        "sublines": ["ဖုန်းထဲ ထည့်စမ်းကြည့်မယ်၊ ပြီးတာနဲ့ GitHub မှာ Commit တင်ပြီး မှတ်တမ်းထားမယ်"],
+        "category": "Coding & Business Execution"
+      },
+      {
+        "id": "7",
+        "label": "Gym Workout ကစားခြင်း (တစ်ပတ် ၄ ရက် - Upper/Lower)",
+        "sublines": [
+          "ပုံမှန်: Hevy/Strong App မှာ Weight နဲ့ Reps မှတ်တမ်းတင်ပြီး ကစားမယ်",
+          "ပျင်းတဲ့နေ့ (2-Min Rule): ဖိနပ်စီးပြီး Gym တံခါးဝအထိ လမ်းလျှောက်သွားမယ်"
+        ],
+        "category": "Gym & Recovery"
+      },
+      {
+        "id": "8",
+        "label": "နေ့စဉ် Protein လိုအပ်ချက် ပြည့်အောင် စားခြင်း",
+        "sublines": ["ကိုယ်အလေးချိန် (kg) x 1.6g - 2.0g ပြည့်အောင် အသား၊ ကြက်ဥ၊ နို့ထွက်ပစ္စည်း ဖြည့်မယ်"],
+        "category": "Gym & Recovery"
+      },
+      {
+        "id": "9",
+        "label": "ညအိပ်ချိန် ၇ - ၈ နာရီ ပြည့်အောင် အိပ်စက်ခြင်း",
+        "sublines": ["မနက်ဖြန် အကောင်အထည်ဖော်နိုင်ဖို့ ည ၁၂:၃၀ မတိုင်ခင် ဖုန်းချ အိပ်မယ်"],
+        "category": "Gym & Recovery"
+      },
+      {
+        "id": "10",
+        "label": "ညအိပ်ရာမဝင်ခင် မနက်ဖြန် အကောင်အထည်ဖော်မယ့် အလုပ် ၁ ခု ကြိုတင်ပြင်ဆင်ခြင်း",
+        "sublines": ["မနက်ဖြန်ဝတ်မယ့် Gym အဝတ်အစား ထုတ်ထားမယ်၊ လုပ်မယ့် Project ဖိုင် ဖွင့်ထားမယ် (Never Miss Twice)"],
+        "category": "Atomic Habits စနစ် (Setup & Reset)"
+      }
+    ];
+
+    function renderChecklist() {
+      const container = document.getElementById('checklist-container');
+      container.innerHTML = '';
+      
+      const savedChecks = JSON.parse(localStorage.getItem('sec_checklist') || '{}');
+
+      // Group by categories
+      const categories = [...new Set(checklistData.map(item => item.category))];
+
+      categories.forEach(cat => {
+        const catTitle = document.createElement('div');
+        catTitle.className = 'checklist-category-title';
+        catTitle.textContent = cat;
+        container.appendChild(catTitle);
+
+        const items = checklistData.filter(i => i.category === cat);
+        items.forEach(item => {
+          const isChecked = savedChecks[item.id] || false;
+          const div = document.createElement('div');
+          div.className = 'checklist-item';
+          
+          let sublinesHtml = item.sublines.map(sub => `<span class="checklist-sub">${sub}</span>`).join('');
+
+          div.innerHTML = `
+            <input type="checkbox" data-id="${item.id}" ${isChecked ? 'checked' : ''} />
+            <div class="checklist-content">
+              <span class="checklist-label ${isChecked ? 'completed' : ''}">${item.label}</span>
+              ${sublinesHtml}
+            </div>
+          `;
+          container.appendChild(div);
+        });
       });
-      editModal.classList.remove('open');
+    }
+
+    document.getElementById('checklist-container').addEventListener('change', (e) => {
+      if (e.target.type === 'checkbox') {
+        const id = e.target.dataset.id;
+        const savedChecks = JSON.parse(localStorage.getItem('sec_checklist') || '{}');
+        savedChecks[id] = e.target.checked;
+        localStorage.setItem('sec_checklist', JSON.stringify(savedChecks));
+        renderChecklist();
+      }
     });
 
-    // Render Main App
     function renderApp() {
       const selectedMonth = monthFilter.value;
-      const walletTxs = transactions.filter(t => (t.currency || 'NT$') === activeWallet);
-      const monthTxs = walletTxs.filter(t => t.date && t.date.startsWith(selectedMonth));
+      const monthTxs = transactions.filter(t => t.date && t.date.startsWith(selectedMonth));
 
       const totalIncome = monthTxs.filter(t => t.type === 'income').reduce((s, t) => s + t.amount, 0);
       const totalExpense = monthTxs.filter(t => t.type === 'expense').reduce((s, t) => s + t.amount, 0);
       const balance = totalIncome - totalExpense;
 
-      document.getElementById('total-income').textContent = formatMoney(totalIncome);
-      document.getElementById('total-expense').textContent = formatMoney(totalExpense);
-      document.getElementById('total-balance').textContent = formatMoney(balance);
-
-      // Budget & Daily Allowance Calculation
-      const monthlyBudget = budgets[activeWallet] || 0;
-      const budgetLabel = document.getElementById('budget-label');
-      const budgetPctEl = document.getElementById('budget-pct');
-      const budgetFill = document.getElementById('budget-fill');
-      const budgetRemEl = document.getElementById('budget-remaining');
-      const dailyAllowEl = document.getElementById('daily-allowance');
-
-      if (monthlyBudget > 0) {
-        const pct = Math.min(100, Math.round((totalExpense / monthlyBudget) * 100));
-        const rem = monthlyBudget - totalExpense;
-        budgetLabel.textContent = `🎯 ဘတ်ဂျက်: ${formatMoney(monthlyBudget)}`;
-        budgetPctEl.textContent = `${pct}%`;
-        budgetFill.style.width = `${pct}%`;
-        budgetFill.style.background = pct >= 90 ? '#f87171' : pct >= 70 ? '#fbbf24' : '#34d399';
-        budgetRemEl.textContent = rem >= 0 ? `ကျန်: ${formatMoney(rem)}` : `ကျော်လွန်: ${formatMoney(Math.abs(rem))}`;
-
-        const [selY, selM] = selectedMonth.split('-').map(Number);
-        const daysInMonth = new Date(selY, selM, 0).getDate();
-        let remDays = daysInMonth;
-        if (selectedMonth === `${yyyy}-${mm}`) {
-          remDays = Math.max(1, daysInMonth - today.getDate() + 1);
-        }
-        const safeDaily = rem > 0 ? Math.floor(rem / remDays) : 0;
-        dailyAllowEl.textContent = `တစ်နေ့သုံးခွင့်: ${formatMoney(safeDaily)}`;
-      } else {
-        budgetLabel.textContent = `🎯 ${activeWallet} လစဉ်ဘတ်ဂျက် သတ်မှတ်ရန် နှိပ်ပါ`;
-        budgetPctEl.textContent = '';
-        budgetFill.style.width = '0%';
-        budgetRemEl.textContent = 'နေ့စဉ် သုံးစွဲခွင့် တွက်ချက်ပေးမည်';
-        dailyAllowEl.textContent = '';
-      }
-
-      // Smart Secretary Advice
-      const adviceEl = document.getElementById('secretary-advice');
-      if (totalIncome === 0 && totalExpense === 0) {
-        adviceEl.textContent = `📋 ${activeWallet} အတွက် ဒီလစာရင်း မရှိသေးပါ — အပေါ်က Quick ခလုတ်လေးတွေနဲ့ အမြန်စမှတ်နိုင်ပါတယ်။`;
-      } else if (monthlyBudget > 0 && totalExpense > monthlyBudget) {
-        adviceEl.textContent = `🚨 ဘတ်ဂျက်သတိပေးချက်: သတ်မှတ်ဘတ်ဂျက်ထက် ${formatMoney(totalExpense - monthlyBudget)} ကျော်လွန်နေပါပြီ!`;
-      } else if (totalIncome > 0) {
-        const spendRatio = Math.round((totalExpense / totalIncome) * 100);
-        if (spendRatio > 100) {
-          adviceEl.textContent = `🚨 သတိပေးချက်: ဒီလ ဝင်ငွေထက် ${formatMoney(totalExpense - totalIncome)} ပိုသုံးမိနေပါပြီ!`;
-        } else if (spendRatio >= 80) {
-          adviceEl.textContent = `⚠️ သတိထားရန်: ဝင်ငွေရဲ့ ${spendRatio}% သုံးပြီးပါပြီ။ လက်ကျန် ${formatMoney(balance)} ကို ထိန်းသုံးပါ။`;
-        } else {
-          adviceEl.textContent = `✅ အခြေအနေကောင်း: ဝင်ငွေရဲ့ ${spendRatio}% ပဲ သုံးရသေးပြီး ${100 - spendRatio}% စုမိနေပါတယ်။`;
-        }
-      } else {
-        adviceEl.textContent = `💡 ဒီလ ${activeWallet} အသုံးစရိတ် စုစုပေါင်း ${formatMoney(totalExpense)} ရှိပါပြီ။`;
-      }
-
-      renderAnalytics(monthTxs, walletTxs, totalExpense);
-
-      // Filter & Search List
-      const filteredTxs = monthTxs.filter(t => {
-        const matchType = currentFilter === 'all' ? true : t.type === currentFilter;
-        const matchSearch = !searchQuery ||
-          (t.note && t.note.toLowerCase().includes(searchQuery)) ||
-          (t.category && t.category.toLowerCase().includes(searchQuery));
-        return matchType && matchSearch;
-      });
+      document.getElementById('total-income').textContent = formatNT(totalIncome);
+      document.getElementById('total-income-ks').textContent = `≈ ${formatKs(totalIncome)}`;
+      document.getElementById('total-expense').textContent = formatNT(totalExpense);
+      document.getElementById('total-expense-ks').textContent = `≈ ${formatKs(totalExpense)}`;
+      
+      const balEl = document.getElementById('total-balance');
+      balEl.textContent = formatNT(balance);
+      balEl.style.color = balance >= 0 ? '#ffffff' : '#f87171';
+      document.getElementById('total-balance-ks').textContent = `≈ ${formatKs(balance)}`;
 
       txList.innerHTML = '';
-      if (filteredTxs.length === 0) {
+      if (monthTxs.length === 0) {
         txList.innerHTML = '<div class="empty-state">မှတ်တမ်း မရှိသေးပါ</div>';
         return;
       }
 
-      filteredTxs.forEach(t => {
+      monthTxs.forEach(t => {
         const li = document.createElement('li');
         li.className = 'tx-item';
         const sign = t.type === 'income' ? '+' : '−';
@@ -1377,106 +522,25 @@
 
         li.innerHTML = `
           <div class="tx-info">
-            <span class="tx-note">${escapeHtml(t.note)}</span>
-            <span class="tx-meta">${escapeHtml(t.category)} • ${escapeHtml(t.date)}</span>
+            <span class="tx-note">${t.note}</span>
+            <span class="tx-meta">${t.category} • ${t.date}</span>
           </div>
           <div class="tx-right">
-            <span class="tx-amount ${colorClass}">${sign} ${formatMoney(t.amount)}</span>
-            <button class="action-btn edit-btn" data-id="${t.id}" title="ပြင်ရန်">✏️</button>
-            <button class="action-btn del-btn" data-id="${t.id}" title="ဖျက်ရန်">×</button>
+            <div>
+              <span class="tx-amount ${colorClass}">${sign} ${formatNT(t.amount)}</span>
+              <span class="tx-amount-ks">≈ ${formatKs(t.amount)}</span>
+            </div>
+            <button class="del-btn" data-id="${t.id}" title="ဖျက်ရန်">×</button>
           </div>
         `;
         txList.appendChild(li);
       });
     }
 
-    function renderAnalytics(monthTxs, walletTxs, totalExpense) {
-      const card = document.getElementById('analytics-card');
-      const chartContainer = document.getElementById('daily-chart');
-      const breakdownContainer = document.getElementById('category-breakdown');
-
-      if (totalExpense === 0) {
-        card.style.display = 'none';
-        return;
-      }
-      card.style.display = 'block';
-
-      // Last 7 Days Bar Chart
-      const days = [];
-      for (let i = 6; i >= 0; i--) {
-        const d = new Date(today);
-        d.setDate(today.getDate() - i);
-        const iso = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
-        const label = `${d.getMonth() + 1}/${d.getDate()}`;
-        const sum = walletTxs.filter(t => t.type === 'expense' && t.date === iso).reduce((s, t) => s + t.amount, 0);
-        days.push({ label, sum });
-      }
-      const maxDay = Math.max(...days.map(d => d.sum), 1);
-      chartContainer.innerHTML = '';
-      days.forEach(d => {
-        const hPct = Math.max(6, Math.round((d.sum / maxDay) * 100));
-        const col = document.createElement('div');
-        col.className = 'chart-col';
-        col.innerHTML = `
-          <div class="chart-bar" style="height: ${hPct}%; opacity: ${d.sum > 0 ? 1 : 0.25};" title="${formatMoney(d.sum)}"></div>
-          <span class="chart-label">${d.label}</span>
-        `;
-        chartContainer.appendChild(col);
-      });
-
-      // Category Breakdown
-      const totalsByCat = {};
-      monthTxs.filter(t => t.type === 'expense').forEach(t => {
-        totalsByCat[t.category] = (totalsByCat[t.category] || 0) + t.amount;
-      });
-      const sortedCats = Object.entries(totalsByCat).sort((a, b) => b[1] - a[1]);
-      breakdownContainer.innerHTML = '';
-      sortedCats.forEach(([cat, amt]) => {
-        const pct = Math.round((amt / totalExpense) * 100);
-        const div = document.createElement('div');
-        div.className = 'cat-bar-item';
-        div.innerHTML = `
-          <div class="cat-bar-header">
-            <span>${escapeHtml(cat)}</span>
-            <span><strong>${formatMoney(amt)}</strong> (${pct}%)</span>
-          </div>
-          <div class="progress-track">
-            <div class="progress-fill" style="width: ${pct}%"></div>
-          </div>
-        `;
-        breakdownContainer.appendChild(div);
-      });
-    }
-
-    document.querySelectorAll('.filter-chip').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('.filter-chip').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        currentFilter = btn.dataset.filter;
-        renderApp();
-      });
-    });
-
-    document.getElementById('export-csv').addEventListener('click', () => {
-      const selectedMonth = monthFilter.value;
-      const monthTxs = transactions.filter(t => (t.currency || 'NT$') === activeWallet && t.date && t.date.startsWith(selectedMonth));
-      if (monthTxs.length === 0) return alert("ထုတ်ယူရန် မှတ်တမ်း မရှိသေးပါ။");
-
-      let csv = "\uFEFFDate,Type,Category,Note,Amount,Currency\n";
-      monthTxs.forEach(t => {
-        csv += `${t.date},${t.type},"${t.category}","${t.note}",${t.amount},${activeWallet}\n`;
-      });
-
-      const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
-      const link = document.createElement("a");
-      link.href = URL.createObjectURL(blob);
-      link.download = `Secretary_${activeWallet}_${selectedMonth}.csv`;
-      link.click();
-    });
-
-    // Boot
-    updateCategoryOptions(categorySelect, 'expense');
-    setActiveWallet(activeWallet);
+    updateCategoryOptions('expense');
+    renderApp();
+    renderChecklist();
   </script>
 </body>
 </html>
+
