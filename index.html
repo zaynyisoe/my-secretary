@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
-  <title>အတွင်းရေးမှူး PRO (Ultimate Edition)</title>
+  <title>အတွင်းရေးမှူး (ငွေစာရင်းသီးသန့်)</title>
 
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -19,40 +19,12 @@
       canvas.width = size;
       canvas.height = size;
       const ctx = canvas.getContext('2d');
-      const bgGrad = ctx.createLinearGradient(0, 0, size, size);
-      bgGrad.addColorStop(0, '#0f172a');
-      bgGrad.addColorStop(1, '#1e293b');
-      ctx.fillStyle = bgGrad;
+      ctx.fillStyle = '#0f172a';
       ctx.fillRect(0, 0, size, size);
-
-      function drawRoundedRect(x, y, w, h, r) {
-        ctx.beginPath();
-        ctx.moveTo(x + r, y);
-        ctx.lineTo(x + w - r, y);
-        ctx.quadraticCurveTo(x + w, y, x + w, y + r);
-        ctx.lineTo(x + w, y + h - r);
-        ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
-        ctx.lineTo(x + r, y + h);
-        ctx.quadraticCurveTo(x, y + h, x, y + h - r);
-        ctx.lineTo(x, y + r);
-        ctx.quadraticCurveTo(x, y, x + r, y);
-        ctx.closePath();
-      }
-      drawRoundedRect(34, 38, 112, 104, 22);
-      ctx.fillStyle = 'rgba(255, 255, 255, 0.08)';
-      ctx.fill();
-      ctx.lineWidth = 2.5;
-      ctx.strokeStyle = 'rgba(96, 165, 250, 0.5)';
-      ctx.stroke();
-
-      drawRoundedRect(54, 92, 18, 32, 6);
-      ctx.fillStyle = '#60a5fa';
-      ctx.fill();
-      drawRoundedRect(81, 74, 18, 50, 6);
+      
       ctx.fillStyle = '#34d399';
-      ctx.fill();
-      drawRoundedRect(108, 56, 18, 68, 6);
-      ctx.fillStyle = '#fbbf24';
+      ctx.beginPath();
+      ctx.arc(90, 90, 45, 0, Math.PI * 2);
       ctx.fill();
 
       const pngUrl = canvas.toDataURL('image/png');
@@ -64,15 +36,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Myanmar:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-body: #f1f5f9;
-      --header-bg: #0f172a;
+      --bg-body: #f8fafc;
       --card-bg: #ffffff;
-      --text-main: #1e293b;
+      --text-main: #0f172a;
       --text-muted: #64748b;
       --green: #10b981;
       --red: #ef4444;
-      --red-light: #fee2e2;
-      --accent: #3b82f6;
       --border: #e2e8f0;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
@@ -93,151 +62,105 @@
       padding-bottom: 40px;
     }
     .top-header {
-      background: linear-gradient(145deg, #0f172a 0%, #1e293b 100%);
+      background: #0f172a;
       color: #ffffff;
-      padding: calc(18px + env(safe-area-inset-top)) 16px 22px;
-      border-bottom-left-radius: 26px;
-      border-bottom-right-radius: 26px;
+      padding: calc(20px + env(safe-area-inset-top)) 20px 24px;
+      border-bottom-left-radius: 24px;
+      border-bottom-right-radius: 24px;
     }
-    .header-top-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
-    .app-title { font-size: 17px; font-weight: 700; display: flex; align-items: center; gap: 6px; }
-    .rate-setting { display: flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.1); padding: 4px 8px; border-radius: 8px; font-size: 11.5px; }
-    .rate-input { width: 55px; background: transparent; border: none; color: #34d399; font-weight: 700; font-family: inherit; font-size: 12px; outline: none; text-align: right; }
+    .header-flex { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+    .app-title { font-size: 16px; font-weight: 700; letter-spacing: -0.5px; }
+    .rate-box { background: rgba(255,255,255,0.1); padding: 4px 8px; border-radius: 6px; font-size: 11px; color: #34d399; }
+    .rate-input { width: 45px; background: transparent; border: none; color: #34d399; font-weight: 700; font-family: inherit; font-size: 11px; outline: none; text-align: right; }
+
+    .balance-display { text-align: center; }
+    .balance-label { font-size: 11px; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
+    .balance-amount { font-size: 32px; font-weight: 700; letter-spacing: -1px; }
+    .balance-ks { font-size: 13px; color: #34d399; font-weight: 600; margin-top: 2px; }
+
+    .card { background: var(--card-bg); padding: 16px; border-radius: 14px; border: 1px solid var(--border); margin: 14px 14px 0; }
     
-    .balance-box { text-align: center; margin-bottom: 12px; }
-    .balance-label { font-size: 11.5px; color: #94a3b8; margin-bottom: 2px; }
-    .balance-amount { font-size: 28px; font-weight: 700; }
-    .balance-sub-amount { font-size: 14px; color: #34d399; margin-top: 2px; font-weight: 600; }
-
-    .summary-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 12px; }
-    .summary-item { background: rgba(255, 255, 255, 0.08); padding: 10px 12px; border-radius: 12px; }
-    .summary-item span { display: block; font-size: 11px; color: #cbd5e1; margin-bottom: 2px; }
-    .summary-item strong { font-size: 14px; display: block; }
-    .sub-conv { font-size: 11px; color: #94a3b8; font-weight: normal; margin-top: 2px; }
-
-    .card { background: var(--card-bg); margin: 14px 14px 0; padding: 15px; border-radius: 16px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04); }
-    .card-title { font-size: 13.5px; font-weight: 700; margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center; }
-
-    .type-toggle { display: grid; grid-template-columns: 1fr 1fr; background: var(--bg-body); padding: 4px; border-radius: 10px; margin-bottom: 12px; }
-    .type-btn { border: none; background: transparent; padding: 8px; border-radius: 8px; font-family: inherit; font-size: 13px; font-weight: 600; cursor: pointer; color: var(--text-muted); }
-    .type-btn.active-expense { background: var(--red); color: #fff; }
-    .type-btn.active-income { background: var(--green); color: #fff; }
+    .type-toggle { display: grid; grid-template-columns: 1fr 1fr; background: #e2e8f0; padding: 3px; border-radius: 10px; margin-bottom: 14px; }
+    .type-btn { border: none; background: transparent; padding: 8px; font-family: inherit; font-size: 12px; font-weight: 600; color: var(--text-muted); border-radius: 8px; cursor: pointer; }
+    .type-btn.active-exp { background: var(--red); color: #fff; }
+    .type-btn.active-inc { background: var(--green); color: #fff; }
 
     .form-group { margin-bottom: 10px; }
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-    label { display: block; font-size: 11.5px; color: var(--text-muted); margin-bottom: 4px; }
-    input, select { width: 100%; padding: 10px 12px; border: 1px solid var(--border); border-radius: 10px; font-family: inherit; font-size: 15px; outline: none; background: #fff; color: var(--text-main); }
-    input:focus, select:focus { border-color: var(--accent); }
+    label { display: block; font-size: 11px; color: var(--text-muted); margin-bottom: 4px; font-weight: 600; }
+    input, select { width: 100%; padding: 10px; border: 1px solid var(--border); border-radius: 8px; font-family: inherit; font-size: 14px; outline: none; background: #fff; }
+    input:focus, select:focus { border-color: var(--text-main); }
 
-    .submit-btn { width: 100%; background: var(--header-bg); color: #fff; border: none; padding: 12px; border-radius: 10px; font-family: inherit; font-size: 14px; font-weight: 600; cursor: pointer; margin-top: 4px; }
+    .row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .btn-submit { width: 100%; background: var(--text-main); color: #fff; border: none; padding: 12px; border-radius: 8px; font-family: inherit; font-size: 13px; font-weight: 600; cursor: pointer; margin-top: 4px; }
 
     .tx-list { list-style: none; }
-    .tx-item { display: flex; justify-content: space-between; align-items: center; padding: 11px 0; border-bottom: 1px solid var(--border); gap: 8px; }
+    .tx-item { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--border); }
     .tx-item:last-child { border-bottom: none; }
-    .tx-info { display: flex; flex-direction: column; gap: 2px; min-width: 0; flex: 1; }
-    .tx-note { font-size: 13.5px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .tx-meta { font-size: 11px; color: var(--text-muted); }
-    .tx-right { display: flex; align-items: center; gap: 6px; flex-shrink: 0; text-align: right; }
-    .tx-amount { font-size: 13.5px; font-weight: 700; display: block; }
-    .tx-amount-ks { font-size: 11px; color: var(--text-muted); display: block; }
+    .tx-note { font-size: 13px; font-weight: 600; }
+    .tx-sub { font-size: 11px; color: var(--text-muted); }
+    .tx-amt { font-size: 13px; font-weight: 700; text-align: right; }
+    .tx-amt-ks { font-size: 10px; color: var(--text-muted); }
 
-    .del-btn { background: var(--bg-body); border: none; color: var(--text-muted); width: 26px; height: 26px; border-radius: 50%; cursor: pointer; font-size: 14px; display: flex; align-items: center; justify-content: center; }
-    .del-btn:hover { background: var(--red-light); color: var(--red); }
-    .empty-state { text-align: center; color: var(--text-muted); font-size: 13px; padding: 20px 0; }
-
-    /* Checklist & Category Styles */
-    .checklist-category-title { font-size: 12.5px; font-weight: 700; color: var(--accent); margin: 12px 0 6px 0; border-bottom: 1px dashed var(--border); padding-bottom: 4px; }
-    .checklist-item { display: flex; align-items: flex-start; gap: 10px; padding: 8px 0; border-bottom: 1px solid var(--border); }
-    .checklist-item:last-child { border-bottom: none; }
-    .checklist-item input[type="checkbox"] { width: 18px; height: 18px; accent-color: var(--green); margin-top: 2px; cursor: pointer; flex-shrink: 0; }
-    .checklist-content { display: flex; flex-direction: column; gap: 3px; }
-    .checklist-label { font-size: 13px; font-weight: 600; line-height: 1.4; }
-    .checklist-label.completed { text-decoration: line-through; color: var(--text-muted); }
-    .checklist-sub { font-size: 11px; color: var(--text-muted); line-height: 1.3; }
+    .del-btn { background: none; border: none; color: #94a3b8; font-size: 16px; cursor: pointer; padding: 4px; }
+    .del-btn:hover { color: var(--red); }
   </style>
 </head>
 <body>
 
   <div class="app-container">
     <div class="top-header">
-      <div class="header-top-row">
-        <div class="app-title">📋 အတွင်းရေးမှူး PRO</div>
-        <div class="rate-setting" title="1 NT$ လျှင် မြန်မာကျပ် ဘယ်လောက်လဲ">
-          <span>1 NT$ =</span>
-          <input type="number" id="exchange-rate" class="rate-input" value="110" step="0.5" />
-          <span>Ks</span>
+      <div class="header-flex">
+        <div class="app-title">💰 အတွင်းရေးမှူး (ငွေစာရင်း)</div>
+        <div class="rate-box">
+          1 NT$ = <input type="number" id="ex-rate" class="rate-input" value="110" /> Ks
         </div>
       </div>
-
-      <div class="balance-box">
-        <div class="balance-label">ယခုလ လက်ကျန်ငွေ (NT$)</div>
-        <div class="balance-amount" id="total-balance">NT$ 0</div>
-        <div class="balance-sub-amount" id="total-balance-ks">≈ Ks 0</div>
-      </div>
-
-      <div class="summary-grid">
-        <div class="summary-item">
-          <span>စုစုပေါင်း ဝင်ငွေ</span>
-          <strong id="total-income">NT$ 0</strong>
-          <span class="sub-conv" id="total-income-ks">≈ Ks 0</span>
-        </div>
-        <div class="summary-item">
-          <span>စုစုပေါင်း အသုံးစရိတ်</span>
-          <strong id="total-expense">NT$ 0</strong>
-          <span class="sub-conv" id="total-expense-ks">≈ Ks 0</span>
-        </div>
+      <div class="balance-display">
+        <div class="balance-label">ယခုလ လက်ကျန်ငွေ</div>
+        <div class="balance-amount" id="bal-amt">NT$ 0</div>
+        <div class="balance-ks" id="bal-ks">≈ Ks 0</div>
       </div>
     </div>
 
-    <!-- Transaction Form Card -->
+    <!-- Finance Form Card -->
     <div class="card">
       <div class="type-toggle">
-        <button type="button" class="type-btn active-expense" id="btn-expense">− အသုံးစရိတ်</button>
-        <button type="button" class="type-btn" id="btn-income">+ ဝင်ငွေ</button>
+        <button type="button" class="type-btn active-exp" id="btn-exp">− အသုံးစရိတ်</button>
+        <button type="button" class="type-btn" id="btn-inc">+ ဝင်ငွေ</button>
       </div>
 
       <form id="tx-form">
-        <div class="form-row form-group">
+        <div class="row-2 form-group">
           <div>
-            <label for="amount">ပမာဏ (NT$)</label>
-            <input type="number" id="amount" placeholder="ဥပမာ - 120" required min="1" step="any" />
+            <label>ပမာဏ (NT$)</label>
+            <input type="number" id="amt" placeholder="100" required min="1" step="any" />
           </div>
           <div>
-            <label for="category">အမျိုးအစား</label>
-            <select id="category"></select>
+            <label>အမျိုးအစား</label>
+            <select id="cat"></select>
           </div>
         </div>
-
-        <div class="form-row form-group">
+        <div class="row-2 form-group">
           <div>
-            <label for="note">အသေးစိတ် မှတ်ချက်</label>
-            <input type="text" id="note" placeholder="ဥပမာ - ထမင်း / ကော်ဖီ" required />
+            <label>မှတ်ချက်</label>
+            <input type="text" id="note" placeholder="ကော်ဖီ / ထမင်း" required />
           </div>
           <div>
-            <label for="date">ရက်စွဲ</label>
+            <label>ရက်စွဲ</label>
             <input type="date" id="date" required />
           </div>
         </div>
-
-        <button type="submit" class="submit-btn" id="submit-btn">မှတ်တမ်းသွင်းမယ်</button>
+        <button type="submit" class="btn-submit">စာရင်းသွင်းမည်</button>
       </form>
     </div>
 
-    <!-- Transactions List Card -->
+    <!-- Transaction List Card -->
     <div class="card">
-      <div class="card-title">
-        <span>📝 ယခုလ မှတ်တမ်းများ</span>
-        <input type="month" id="month-filter" style="width: auto; padding: 4px 8px; font-size: 12px;" />
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+        <span style="font-size: 12px; font-weight: 700; color: var(--text-muted);">📜 ယခုလ မှတ်တမ်းများ</span>
+        <input type="month" id="month-pick" style="padding: 2px 6px; font-size: 11px; width: auto;" />
       </div>
       <ul class="tx-list" id="tx-list"></ul>
-    </div>
-
-    <!-- Builder & Execution Checklist Card -->
-    <div class="card">
-      <div class="card-title">
-        <span>🚀 နေ့စဉ် Builder & Execution Checklist</span>
-      </div>
-      <div id="checklist-container"></div>
     </div>
   </div>
 
@@ -258,289 +181,133 @@
     const app = initializeApp(firebaseConfig);
     const auth = getAuth(app);
     const db = getFirestore(app);
-
     signInAnonymously(auth).catch(console.error);
 
-    let exchangeRate = parseFloat(localStorage.getItem('sec_exchange_rate')) || 110;
-    document.getElementById('exchange-rate').value = exchangeRate;
-
-    document.getElementById('exchange-rate').addEventListener('input', (e) => {
-      exchangeRate = parseFloat(e.target.value) || 110;
-      localStorage.setItem('sec_exchange_rate', exchangeRate);
-      renderApp();
+    let rate = parseFloat(localStorage.getItem('pure_rate')) || 110;
+    document.getElementById('ex-rate').value = rate;
+    document.getElementById('ex-rate').addEventListener('input', (e) => {
+      rate = parseFloat(e.target.value) || 110;
+      localStorage.setItem('pure_rate', rate);
+      render();
     });
 
     const CATEGORIES = {
-      expense: ["🍜 စားသောက်စရိတ်", "🛵 ဆိုင်ကယ် / သွားလာရေး", "💪 Gym / ကျန်းမာရေး", "💻 Tech / ကျောင်း", "🏠 အဆောင် / ဖုန်းဘေလ်", "🛍️ အထွေထွေ"],
-      income: ["💼 အချိန်ပိုင်း / လစာ", "🏠 မိသားစု ပံ့ပိုးငွေ", "✨ အခြားဝင်ငွေ"]
+      expense: ["🍜 စားစရိတ်", "🛵 သွားလာရေး", "💪 Gym / ကျန်းမာ", "💻 Tech / ကျောင်း", "🏠 အဆောင် / ဖုန်းဘေလ်", "🛍️ အထွေထွေ"],
+      income: ["💼 လစာ / အချိန်ပိုင်း", "🏠 မိသားစု ပံ့ပိုးငွေ", "✨ အခြားဝင်ငွေ"]
     };
 
-    let transactions = [];
     let currentType = 'expense';
+    const catSelect = document.getElementById('cat');
+    const btnExp = document.getElementById('btn-exp');
+    const btnInc = document.getElementById('btn-inc');
 
-    const monthFilter = document.getElementById('month-filter');
-    const categorySelect = document.getElementById('category');
-    const dateInput = document.getElementById('date');
-    const btnExpense = document.getElementById('btn-expense');
-    const btnIncome = document.getElementById('btn-income');
-    const txForm = document.getElementById('tx-form');
-    const submitBtn = document.getElementById('submit-btn');
-    const txList = document.getElementById('tx-list');
+    function updateCats(type) {
+      catSelect.innerHTML = '';
+      CATEGORIES[type].forEach(c => {
+        const opt = document.createElement('option');
+        opt.value = c;
+        opt.textContent = c;
+        catSelect.appendChild(opt);
+      });
+    }
+
+    btnExp.addEventListener('click', () => {
+      currentType = 'expense';
+      btnExp.className = 'type-btn active-exp';
+      btnInc.className = 'type-btn';
+      updateCats('expense');
+    });
+
+    btnInc.addEventListener('click', () => {
+      currentType = 'income';
+      btnInc.className = 'type-btn active-inc';
+      btnExp.className = 'type-btn';
+      updateCats('income');
+    });
 
     const today = new Date();
     const yyyy = today.getFullYear();
     const mm = String(today.getMonth() + 1).padStart(2, '0');
     const dd = String(today.getDate()).padStart(2, '0');
-    dateInput.value = `${yyyy}-${mm}-${dd}`;
-    monthFilter.value = `${yyyy}-${mm}`;
+    document.getElementById('date').value = `${yyyy}-${mm}-${dd}`;
+    const monthPick = document.getElementById('month-pick');
+    monthPick.value = `${yyyy}-${mm}`;
+    monthPick.addEventListener('change', render);
 
-    function updateCategoryOptions(type) {
-      categorySelect.innerHTML = '';
-      CATEGORIES[type].forEach(cat => {
-        const opt = document.createElement('option');
-        opt.value = cat;
-        opt.textContent = cat;
-        categorySelect.appendChild(opt);
-      });
-    }
-
-    btnExpense.addEventListener('click', () => {
-      currentType = 'expense';
-      btnExpense.className = 'type-btn active-expense';
-      btnIncome.className = 'type-btn';
-      updateCategoryOptions('expense');
-    });
-
-    btnIncome.addEventListener('click', () => {
-      currentType = 'income';
-      btnIncome.className = 'type-btn active-income';
-      btnExpense.className = 'type-btn';
-      updateCategoryOptions('income');
-    });
-
-    monthFilter.addEventListener('change', renderApp);
-
+    let transactions = [];
     const q = query(collection(db, "transactions"), orderBy("createdAt", "desc"));
     onSnapshot(q, (snapshot) => {
-      transactions = snapshot.docs.map(docSnap => ({ id: docSnap.id, ...docSnap.data() }));
-      renderApp();
+      transactions = snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
+      render();
     });
 
-    txForm.addEventListener('submit', async (e) => {
+    document.getElementById('tx-form').addEventListener('submit', async (e) => {
       e.preventDefault();
-      submitBtn.disabled = true;
-      submitBtn.textContent = "သိမ်းဆည်းနေသည်...";
-
       const newTx = {
         type: currentType,
-        amount: parseFloat(document.getElementById('amount').value),
-        category: categorySelect.value,
+        amount: parseFloat(document.getElementById('amt').value),
+        category: catSelect.value,
         note: document.getElementById('note').value.trim(),
-        date: dateInput.value,
+        date: document.getElementById('date').value,
         createdAt: Date.now()
       };
+      await addDoc(collection(db, "transactions"), newTx);
+      document.getElementById('amt').value = '';
+      document.getElementById('note').value = '';
+    });
 
-      try {
-        await addDoc(collection(db, "transactions"), newTx);
-        document.getElementById('amount').value = '';
-        document.getElementById('note').value = '';
-      } catch (err) {
-        alert("သိမ်းဆည်းမရပါ: " + err.message);
-      } finally {
-        submitBtn.disabled = false;
-        submitBtn.textContent = "မှတ်တမ်းသွင်းမယ်";
+    document.getElementById('tx-list').addEventListener('click', async (e) => {
+      const btn = e.target.closest('.del-btn');
+      if (btn && confirm('ဖျက်မှာ သေချာပါသလား?')) {
+        await deleteDoc(doc(db, "transactions", btn.dataset.id));
       }
     });
 
-    txList.addEventListener('click', async (e) => {
-      const delBtn = e.target.closest('.del-btn');
-      if (delBtn && confirm('ဒီမှတ်တမ်းကို ဖျက်မှာ သေချာပါသလား?')) {
-        await deleteDoc(doc(db, "transactions", delBtn.dataset.id));
-      }
-    });
+    function render() {
+      const selMonth = monthPick.value;
+      const filtered = transactions.filter(t => t.date && t.date.startsWith(selMonth));
 
-    function formatNT(amt) {
-      return `NT$ ${Number(amt).toLocaleString()}`;
-    }
-    function formatKs(amt) {
-      return `Ks ${Math.round(amt * exchangeRate).toLocaleString()}`;
-    }
-
-    // Complete Checklist Data from Artifact
-    const checklistData = [
-      {
-        "id": "1",
-        "label": "မနက် ကော်ဖီသောက်ပြီးတာနဲ့ ဒီနေ့အတွက် 'Action ၁ ခု' ချက်ချင်း စတင်ခြင်း (Habit Stacking)",
-        "sublines": ["စာအုပ်ဖွင့်မယ့်အစား Pleco / Shopee သို့မဟုတ် VS Code ကို ချက်ချင်းဖွင့်မယ်"],
-        "category": "Atomic Habits စနစ် (Setup & Reset)"
-      },
-      {
-        "id": "2",
-        "label": "လက်တွေ့သုံးမယ့် တရုတ်စကားလုံး/ဝါကျ ၃ ခု ရှာပြီး ချက်ချင်း သုံးခြင်း (Just-in-Time)",
-        "sublines": [
-          "ပုံမှန်: Shopee ရောင်းသူနဲ့ Chat မှာ ဈေးညှိတာ သို့မဟုတ် ဆိုင်မှာ ကိုယ်တိုင်မှာစားတာ လုပ်မယ်",
-          "ပျင်းတဲ့နေ့ (2-Min Rule): Pleco ထဲမှာ စီးပွားရေး/နေ့စဉ်သုံး စကားလုံး ၃ လုံးပဲ ရှာမှတ်မယ်"
-        ],
-        "category": "တရုတ်စာ လက်တွေ့အသုံးချခြင်း (Real-World Chinese)"
-      },
-      {
-        "id": "3",
-        "label": "တရုတ်စာ ဖတ်ရှုခြင်းနှင့် နားထောင်ခြင်း (၁၀ မိနစ်)",
-        "sublines": [
-          "ပုံမှန်: Shopee ပစ္စည်းအညွှန်း/Review ဖတ်တာ သို့မဟုတ် Du Chinese ၁ ပုဒ် နားထောင်မယ်",
-          "ပျင်းတဲ့နေ့ (2-Min Rule): စာကြောင်း ၃ ကြောင်းပဲ အသံထွက်ဖတ်မယ်"
-        ],
-        "category": "တရုတ်စာ လက်တွေ့အသုံးချခြင်း (Real-World Chinese)"
-      },
-      {
-        "id": "4",
-        "label": "၂၀ - ၃၀ မိနစ် Builder Sprint (ဆိုင်သုံး Tool / Website / Automation တည်ဆောက်ခြင်း)",
-        "sublines": [
-          "ပုံမှန်: ဖုန်း Silent လုပ်ပြီး Frame Calculator၊ QR စနစ် သို့မဟုတ် Automation Script တစ်ပိုင်း ပြီးအောင်ရေးမယ်",
-          "ပျင်းတဲ့နေ့ (2-Min Rule): VS Code ဖွင့်ပြီး Code ၅ ကြောင်းပဲ ရေး/ပြင်မယ်"
-        ],
-        "category": "Coding & Business Execution"
-      },
-      {
-        "id": "5",
-        "label": "စီးပွားရေး လက်တွေ့လှုပ်ရှားမှု ၁ ခု လုပ်ခြင်း (Taiwan ➔ Myanmar Action)",
-        "sublines": [
-          "ပုံမှန်: Shopee မှာ ကုန်ပစ္စည်း/ဈေးနှုန်း စုံစမ်းတာ၊ အမေ့ဆိုင်အတွက် TikTok Script/ပုံ ပြင်ပေးတာ လုပ်မယ်",
-          "ပျင်းတဲ့နေ့ (2-Min Rule): Shopee မှာ ကုန်ပစ္စည်း Keyword ၁ ခု ဝင်ရှာကြည့်မယ်"
-        ],
-        "category": "Coding & Business Execution"
-      },
-      {
-        "id": "6",
-        "label": "ရေးပြီးသား Code ကို ချက်ချင်း စမ်းသပ်ပြီး GitHub တင်ခြင်း (Ship & Commit)",
-        "sublines": ["ဖုန်းထဲ ထည့်စမ်းကြည့်မယ်၊ ပြီးတာနဲ့ GitHub မှာ Commit တင်ပြီး မှတ်တမ်းထားမယ်"],
-        "category": "Coding & Business Execution"
-      },
-      {
-        "id": "7",
-        "label": "Gym Workout ကစားခြင်း (တစ်ပတ် ၄ ရက် - Upper/Lower)",
-        "sublines": [
-          "ပုံမှန်: Hevy/Strong App မှာ Weight နဲ့ Reps မှတ်တမ်းတင်ပြီး ကစားမယ်",
-          "ပျင်းတဲ့နေ့ (2-Min Rule): ဖိနပ်စီးပြီး Gym တံခါးဝအထိ လမ်းလျှောက်သွားမယ်"
-        ],
-        "category": "Gym & Recovery"
-      },
-      {
-        "id": "8",
-        "label": "နေ့စဉ် Protein လိုအပ်ချက် ပြည့်အောင် စားခြင်း",
-        "sublines": ["ကိုယ်အလေးချိန် (kg) x 1.6g - 2.0g ပြည့်အောင် အသား၊ ကြက်ဥ၊ နို့ထွက်ပစ္စည်း ဖြည့်မယ်"],
-        "category": "Gym & Recovery"
-      },
-      {
-        "id": "9",
-        "label": "ညအိပ်ချိန် ၇ - ၈ နာရီ ပြည့်အောင် အိပ်စက်ခြင်း",
-        "sublines": ["မနက်ဖြန် အကောင်အထည်ဖော်နိုင်ဖို့ ည ၁၂:၃၀ မတိုင်ခင် ဖုန်းချ အိပ်မယ်"],
-        "category": "Gym & Recovery"
-      },
-      {
-        "id": "10",
-        "label": "ညအိပ်ရာမဝင်ခင် မနက်ဖြန် အကောင်အထည်ဖော်မယ့် အလုပ် ၁ ခု ကြိုတင်ပြင်ဆင်ခြင်း",
-        "sublines": ["မနက်ဖြန်ဝတ်မယ့် Gym အဝတ်အစား ထုတ်ထားမယ်၊ လုပ်မယ့် Project ဖိုင် ဖွင့်ထားမယ် (Never Miss Twice)"],
-        "category": "Atomic Habits စနစ် (Setup & Reset)"
-      }
-    ];
-
-    function renderChecklist() {
-      const container = document.getElementById('checklist-container');
-      container.innerHTML = '';
-      
-      const savedChecks = JSON.parse(localStorage.getItem('sec_checklist') || '{}');
-
-      // Group by categories
-      const categories = [...new Set(checklistData.map(item => item.category))];
-
-      categories.forEach(cat => {
-        const catTitle = document.createElement('div');
-        catTitle.className = 'checklist-category-title';
-        catTitle.textContent = cat;
-        container.appendChild(catTitle);
-
-        const items = checklistData.filter(i => i.category === cat);
-        items.forEach(item => {
-          const isChecked = savedChecks[item.id] || false;
-          const div = document.createElement('div');
-          div.className = 'checklist-item';
-          
-          let sublinesHtml = item.sublines.map(sub => `<span class="checklist-sub">${sub}</span>`).join('');
-
-          div.innerHTML = `
-            <input type="checkbox" data-id="${item.id}" ${isChecked ? 'checked' : ''} />
-            <div class="checklist-content">
-              <span class="checklist-label ${isChecked ? 'completed' : ''}">${item.label}</span>
-              ${sublinesHtml}
-            </div>
-          `;
-          container.appendChild(div);
-        });
+      let inc = 0, exp = 0;
+      filtered.forEach(t => {
+        if (t.type === 'income') inc += t.amount;
+        else exp += t.amount;
       });
-    }
+      const bal = inc - exp;
 
-    document.getElementById('checklist-container').addEventListener('change', (e) => {
-      if (e.target.type === 'checkbox') {
-        const id = e.target.dataset.id;
-        const savedChecks = JSON.parse(localStorage.getItem('sec_checklist') || '{}');
-        savedChecks[id] = e.target.checked;
-        localStorage.setItem('sec_checklist', JSON.stringify(savedChecks));
-        renderChecklist();
-      }
-    });
+      document.getElementById('bal-amt').textContent = `NT$ ${bal.toLocaleString()}`;
+      document.getElementById('bal-ks').textContent = `≈ Ks ${Math.round(bal * rate).toLocaleString()}`;
 
-    function renderApp() {
-      const selectedMonth = monthFilter.value;
-      const monthTxs = transactions.filter(t => t.date && t.date.startsWith(selectedMonth));
-
-      const totalIncome = monthTxs.filter(t => t.type === 'income').reduce((s, t) => s + t.amount, 0);
-      const totalExpense = monthTxs.filter(t => t.type === 'expense').reduce((s, t) => s + t.amount, 0);
-      const balance = totalIncome - totalExpense;
-
-      document.getElementById('total-income').textContent = formatNT(totalIncome);
-      document.getElementById('total-income-ks').textContent = `≈ ${formatKs(totalIncome)}`;
-      document.getElementById('total-expense').textContent = formatNT(totalExpense);
-      document.getElementById('total-expense-ks').textContent = `≈ ${formatKs(totalExpense)}`;
-      
-      const balEl = document.getElementById('total-balance');
-      balEl.textContent = formatNT(balance);
-      balEl.style.color = balance >= 0 ? '#ffffff' : '#f87171';
-      document.getElementById('total-balance-ks').textContent = `≈ ${formatKs(balance)}`;
-
-      txList.innerHTML = '';
-      if (monthTxs.length === 0) {
-        txList.innerHTML = '<div class="empty-state">မှတ်တမ်း မရှိသေးပါ</div>';
+      const list = document.getElementById('tx-list');
+      list.innerHTML = '';
+      if (filtered.length === 0) {
+        list.innerHTML = '<div style="text-align:center; color:#94a3b8; font-size:12px; padding:15px 0;">ယခုလ မှတ်တမ်း မရှိသေးပါ။</div>';
         return;
       }
 
-      monthTxs.forEach(t => {
+      filtered.forEach(t => {
+        const sign = t.type === 'income' ? '+' : '−';
+        const color = t.type === 'income' ? '#10b981' : '#0f172a';
         const li = document.createElement('li');
         li.className = 'tx-item';
-        const sign = t.type === 'income' ? '+' : '−';
-        const colorClass = t.type === 'income' ? 'income-text' : 'expense-text';
-
         li.innerHTML = `
-          <div class="tx-info">
-            <span class="tx-note">${t.note}</span>
-            <span class="tx-meta">${t.category} • ${t.date}</span>
+          <div>
+            <div class="tx-note">${t.note}</div>
+            <div class="tx-sub">${t.category} • ${t.date}</div>
           </div>
-          <div class="tx-right">
-            <div>
-              <span class="tx-amount ${colorClass}">${sign} ${formatNT(t.amount)}</span>
-              <span class="tx-amount-ks">≈ ${formatKs(t.amount)}</span>
+          <div style="display:flex; align-items:center; gap:8px;">
+            <div style="text-align:right;">
+              <div class="tx-amt" style="color: ${color};">${sign} NT$ ${t.amount.toLocaleString()}</div>
+              <div class="tx-amt-ks">≈ Ks ${Math.round(t.amount * rate).toLocaleString()}</div>
             </div>
-            <button class="del-btn" data-id="${t.id}" title="ဖျက်ရန်">×</button>
+            <button class="del-btn" data-id="${t.id}">×</button>
           </div>
         `;
-        txList.appendChild(li);
+        list.appendChild(li);
       });
     }
 
-    updateCategoryOptions('expense');
-    renderApp();
-    renderChecklist();
+    updateCats('expense');
+    render();
   </script>
 </body>
 </html>
-
